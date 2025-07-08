@@ -1,0 +1,16 @@
+.main-dev {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.grid-header {
+  font-weight: bold;
+  background-color: #0f0b2b;
+  color: white;
+  padding: 12px;
+}
+.grid-cell {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  background-color: #f4f4f4;
+}
+
