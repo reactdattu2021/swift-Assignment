@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import { CiSearch } from "react-icons/ci";
 // import { TiArrowUnsorted } from "react-icons/ti";
 import "./homepage.css";
 const Homepage = () => {
@@ -147,15 +147,10 @@ const Homepage = () => {
 
   return (
     <>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "20px",
-        }}
-      >
-        <div>
+      <div className="flex-container">
+        <div className="sort-controls-container">
           <select
+            className="select-button"
             value={postIdSortDirection || ""}
             onChange={(e) => handleSortChange("postId", e.target.value || null)}
           >
@@ -164,6 +159,7 @@ const Homepage = () => {
             <option value="desc">Sort Post ID (desc)</option>
           </select>
           <select
+            className="select-button"
             value={nameSortDirection || ""}
             onChange={(e) => {
               const value = e.target.value || null;
@@ -177,6 +173,7 @@ const Homepage = () => {
             <option value="desc">Sort Name (desc)</option>
           </select>
           <select
+            className="select-button"
             value={emailSortDirection || ""}
             onChange={(e) => handleSortChange("email", e.target.value || null)}
           >
@@ -186,14 +183,16 @@ const Homepage = () => {
           </select>
         </div>
 
-        <input
-          type="text"
-          className="search-box"
-          placeholder="Search Name, Email, Comment"
-          value={searchText}
-          onChange={(e) => setSearchText(e.target.value)}
-          style={{ width: "300px", height: "30px", marginTop: "20px" }}
-        />
+          <div className="search-input-container">
+    <CiSearch className="search-icon" />
+    <input
+      type="text"
+      className="search-box"
+      placeholder="Search Name, Email, Comment"
+      value={searchText}
+      onChange={(e) => setSearchText(e.target.value)}
+    />
+  </div>
       </div>
 
       <div className="main-dev">
@@ -210,10 +209,18 @@ const Homepage = () => {
             <div className="grid-cell">{row.body}</div>
           </React.Fragment>
         ))}
-        <div style={{ marginTop: "20px", display: "flex", gap: "10px" }}>
-          {pageIndex > 0 && <button onClick={handlePrevPage}>Previous</button>}
-          {pageIndex < 3 && <button onClick={handleNextPage}>Next</button>}
-        </div>
+      </div>
+      <div className="flex-spacing-container">
+        {pageIndex > 0 && (
+          <button className="spacing" onClick={handlePrevPage}>
+            Previous
+          </button>
+        )}
+        {pageIndex < 3 && (
+          <button className="spacing" onClick={handleNextPage}>
+            Next
+          </button>
+        )}
       </div>
     </>
   );

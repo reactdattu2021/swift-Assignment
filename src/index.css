@@ -1,1 +1,28 @@
 
+/* index.css */
+
+/* Reset box sizing and remove default spacing */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll */
+html, body {
+  width: 100%;
+  overflow-x: hidden;     /* Prevent horizontal scroll */
+  max-width: 100%;        /* Don't allow content wider than screen */
+  word-break: break-word; /* Handle long words/text properly */
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+
+/* Optional: Set a clean background and default font */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+}
+

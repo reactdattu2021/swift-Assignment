@@ -1,16 +1,398 @@
 .main-dev {
   display: grid;
   grid-template-columns: auto auto auto auto;
+  margin: 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  
+  
 }
 .grid-header {
   font-weight: bold;
-  background-color: #0f0b2b;
-  color: white;
-  padding: 12px;
+  background-color:#bac1cc;
+  color:#515a6c;
+  padding: 18px;
+  
 }
-.grid-cell {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-  background-color: #f4f4f4;
+.grid-header:first-child {
+  border-top-left-radius: 8px; 
+}
+.grid-header:nth-child(4) { 
+  border-top-right-radius: 8px; 
 }
 
+.grid-cell {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+  background-color: #F8F8F8;
+  color: #555555;
+  font-family: sans-serif;
+ 
+}
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  
+  margin: 30px;
+}
+.flex-spacing-container {
+  margin: 30px;
+  
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 10px;
+  
+}
+.spacing{
+  color:#555555 ;
+  padding: 10px;
+font-family: sans-serif;
+border-radius: 5px;
+} 
+/* Container for the select elements, aligned to the right */
+.sort-controls-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content:start; 
+  align-items: center;     
+  gap: 10px;               
+  width: 100%; 
+  
+}
+
+
+.select-button {
+  /* Remove default browser styling */
+  -webkit-appearance: none; 
+  -moz-appearance: none;   
+  appearance: none;         
+
+  /* Button-like appearance */
+  padding: 10px 30px 10px 15px;
+  border: 1px solid #bac1cc;
+  border-radius: 8px; 
+  background-color: #F8F8F8; 
+  color: #515a6c; 
+  font-family: sans-serif; 
+  font-weight: bold; 
+  cursor: pointer; 
+  outline: none; 
+
+  
+} 
+
+/* Hover and Focus states for better interactivity */
+.select-button:hover {
+  background-color: #aeb5c2; 
+  border-color: #aeb5c2;
+}
+
+.select-button:focus {
+  border-color: #3b82f6; 
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5); 
+}
+
+/* Styling for options within the select (less control here) */
+.select-button option {
+  background-color: #F8F8F8; 
+  color: #555555; 
+}
+/* Styling for the search input box */
+/* Container for the search input and icon */
+.search-input-container {
+  position: relative; /* Allows absolute positioning of children */
+  width: 300px; /* Match the width of the input */
+  height: 30px; /* Match the height of the input */
+  margin-top: 20px;
+  display: flex; /* Use flex to easily align icon and input */
+  align-items: center; /* Vertically center the icon and input */
+}
+
+/* Styling for the search input box */
+.search-box {
+  width: 100%; /* Make input fill the container */
+  height: 100%; /* Make input fill the container */
+  padding: 8px 12px 8px 40px; /* Add more left padding for the icon */
+  border: 1px solid #ddd; /* A subtle border */
+  border-radius: 8px; /* Rounded corners */
+  font-family: sans-serif; /* Consistent font */
+  color: #555555; /* Text color */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05); /* Subtle inner shadow */
+  outline: none; /* Remove default outline */
+  background-color: #F8F8F8; /* Ensure background matches your other elements */
+}
+
+/* Focus state for the search box */
+
+
+/* Placeholder text style */
+.search-box::placeholder {
+  color: #999;
+}
+
+/* Styling for the search icon */
+.search-icon {
+  position: absolute; /* Position relative to the container */
+  left: 12px; /* Adjust as needed to position the icon */
+  color: #999; /* Color of the icon */
+  font-size: 18px; /* Size of the icon */
+  /* Ensure it's not clickable or interfering with input */
+  pointer-events: none;
+}
+@media (max-width: 767px) {
+  .main-dev {
+    /* Single column for mobile */
+    grid-template-columns: 1fr;
+    margin: 15px; /* Adjust margin for smaller screens */
+    box-shadow: none; /* Remove shadow for a cleaner mobile look if desired */
+  }
+
+  .grid-header {
+    padding: 12px; /* Slightly less padding for mobile headers */
+  }
+
+  .grid-header:first-child {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px; /* Apply top-right radius to the first header in single column */
+  }
+  /* Ensure other headers don't get unintended radii in single column */
+  .grid-header:not(:first-child) {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  /* Remove the nth-child(4) rule as it's not relevant for single column */
+  .grid-header:nth-child(4) {
+    border-top-right-radius: 0; /* Override if it was set elsewhere */
+  }
+
+
+  .grid-cell {
+    padding: 12px; /* Slightly less padding for mobile cells */
+  }
+
+  .flex-container {
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally when stacked */
+    margin: 15px; /* Adjust margin for smaller screens */
+    gap: 10px; /* Maintain gap between stacked items */
+  }
+
+  .flex-spacing-container {
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    margin: 15px; 
+    gap: 10px; 
+  }
+
+  .sort-controls-container {
+    flex-direction: column; /* Stack select elements vertically */
+    justify-content: center; /* Center items horizontally */
+    align-items: center; /* Center items horizontally */
+    margin-top: 15px; /* Adjust margin for smaller screens */
+    gap: 10px; /* Space between stacked select elements */
+  }
+
+  .select-button {
+    width: 100%; /* Make select buttons full width on mobile */
+    padding: 10px 20px 10px 15px; /* Adjust padding for full width */
+  }
+
+  .search-input-container {
+    width: 100%; /* Make search input full width on mobile */
+    margin-top: 15px; /* Adjust margin for smaller screens */
+  }
+
+  .search-box {
+    padding: 8px 12px 8px 40px; /* Maintain padding for icon */
+  }
+
+  /* Existing .grid-form styles (already mobile-first in previous context) */
+  .grid-form {
+    grid-template-columns: 1fr; /* Single column for small screens */
+    max-width: 95%; /* Adjust max-width for better mobile fit */
+    margin: 20px auto; /* Adjust margin for mobile */
+    padding: 20px;
+  }
+
+  .grid-header5 {
+    grid-column: span 1; /* Spans 1 column on mobile */
+  }
+
+  .full-width {
+    grid-column: span 1; /* Spans 1 column on mobile */
+  }
+}
+
+/* Default styles (for larger screens, or base styles before mobile override) */
+.main-dev {
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+  margin: 30px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.grid-header {
+  font-weight: bold;
+  background-color:#bac1cc;
+  color:#515a6c;
+  padding: 18px;
+}
+
+.grid-header:first-child {
+  border-top-left-radius: 8px;
+}
+.grid-header:nth-child(4) {
+  border-top-right-radius: 8px;
+}
+
+.grid-cell {
+  padding: 18px;
+  border-bottom: 1px solid #ddd;
+  background-color: #F8F8F8;
+  color: #555555;
+  font-family: sans-serif;
+}
+
+.flex-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px;
+}
+
+.flex-spacing-container {
+  margin: 30px;
+  display: flex;
+  justify-content: flex-end; /* Changed from 'end' to 'flex-end' for clarity */
+  align-items: center;
+  gap: 10px;
+}
+
+.spacing{
+  color:#555555 ;
+  padding: 10px;
+  font-family: sans-serif;
+  border-radius: 5px;
+}
+
+/* Container for the select elements, aligned to the right */
+.sort-controls-container {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-start; /* Changed from 'start' to 'flex-start' for clarity */
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.select-button {
+  /* Remove default browser styling */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  /* Button-like appearance */
+  padding: 10px 30px 10px 15px;
+  border: 1px solid #bac1cc;
+  border-radius: 8px;
+  background-color: #F8F8F8;
+  color: #515a6c;
+  font-family: sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Hover and Focus states for better interactivity */
+.select-button:hover {
+  background-color: #aeb5c2;
+  border-color: #aeb5c2;
+}
+
+.select-button:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.5);
+}
+
+/* Styling for options within the select (less control here) */
+.select-button option {
+  background-color: #F8F8F8;
+  color: #555555;
+}
+
+/* Container for the search input and icon */
+.search-input-container {
+  position: relative;
+  width: 300px;
+  height: 30px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+/* Styling for the search input box */
+.search-box {
+  width: 100%;
+  height: 100%;
+  padding: 8px 12px 8px 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: sans-serif;
+  color: #555555;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.05);
+  outline: none;
+  background-color: #F8F8F8;
+}
+
+/* Focus state for the search box */
+.search-box:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2);
+}
+
+/* Placeholder text style */
+.search-box::placeholder {
+  color: #999;
+}
+
+/* Styling for the search icon */
+.search-icon {
+  position: absolute;
+  left: 12px;
+  color: #999;
+  font-size: 18px;
+  pointer-events: none;
+}
+
+/* Welcome text and header styles (already mobile-first) */
+.welcome-text {
+  text-align: start;
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+}
+.welcome-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-left: 10px;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.welcome-text {
+  font-size: 22px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}

@@ -1,9 +1,11 @@
+
 /* Container for the entire grid layout */
+
 .grid-form {
   display: grid;
   grid-template-columns: repeat(2, 1fr); /* Two columns */
   gap: 20px;
-  max-width: 700px;
+  max-width: 80%;
   margin: 40px auto;
   padding: 20px;
   border: 1px solid #aaa;
@@ -76,11 +78,7 @@ input {
   transition: border-color 0.3s;
 }
 
-/* input:focus {
-  outline: none;
-  border-color: #007bfc;
-  background-color: #fff;
-} */
+
  .welcome-text {
   text-align: start;
   margin-bottom: 15px;
@@ -112,6 +110,124 @@ input {
   color: #333;
   margin: 0;
 }
+@media (max-width: 767px) {
+  .grid-form {
+    display: grid;
+    /* Single column for small screens */
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 95%; /* Adjust max-width for better mobile fit */
+    margin: 20px auto; /* Adjust margin for mobile */
+    padding: 20px;
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    background-color: #ffffff; /* Match background with rest of page */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Header that spans the full row */
+  .grid-header5 {
+    /* On mobile, spans 1 column */
+    grid-column: span 1;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 10px;
+    /* No background color, blends in */
+  }
+
+  /* DK icon or placeholder block */
+  .grid-header5 h1 {
+    width: 50px;
+    height: 50px;
+    background-color: #f4fafde7;
+    color: rgb(15, 9, 9);
+    font-size: 24px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+  }
+
+  /* Profile text (username + email) */
+  .grid-header5 div h3 {
+    margin: 0;
+    font-size: 20px;
+    font-weight: 600;
+  }
+
+  .grid-header5 div p {
+    margin: 2px 0 0 0;
+    color: #555;
+  }
+
+  /* Form-like grid items */
+  .grid-item {
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Makes the phone field span full width */
+  .full-width {
+    /* On mobile, spans 1 column */
+    grid-column: span 1;
+  }
+
+  /* Labels */
+  label {
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  /* Inputs */
+  input {
+    padding: 10px;
+    font-size: 14px;
+    border: 0px solid #ccc;
+    border-radius: 5px;
+    background-color: #f4fafde7;
+    transition: border-color 0.3s;
+  }
+
+  /* input:focus {
+    outline: none;
+    border-color: #007bfc;
+    background-color: #fff;
+  } */
+  .welcome-text {
+    text-align: start;
+    margin-bottom: 15px;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+  }
+  .welcome-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-left: 10px;
+  }
+
+  .back-button {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: #333;
+    display: flex;
+    align-items: center;
+  }
+
+  .welcome-text {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+  }
+} 
 
 
 

@@ -36,4 +36,50 @@
 .user-name {
   font-size: 18px;
 }
+.s-logo {
+
+ 
+  background-color: #0F993E;
+   /* Solid dark green */
+  
+   
+  color: white;
+  font-size: 2rem;
+ 
+  font-family: sans-serif;
+  text-align: center;
+ 
+  border-radius: (6px 6px 8px 6px );
+  
+}
+/* Media query for mobile devices (screens up to 767px wide) */
+@media (max-width: 767px) {
+  .navbar {
+    flex-direction: column; 
+    padding: 15px; 
+    gap: 10px; 
+  }
+
+  .logo {
+    margin-left: 0; 
+    text-align: center; 
+  }
+
+  .user-info {
+    margin-right: 0; 
+    justify-content: center;
+    width: 100%; 
+  }
+
+  .user-name {
+    font-size: 16px; 
+  }
+
+  
+  .s-logo {
+    border-radius: 6px; 
+  }
+}
+
+
 

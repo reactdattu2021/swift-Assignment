@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // import './App.css'
 import Navber from './mainFolder/pages/navber'
@@ -35,10 +36,13 @@ function App() {
     : "";
 
   return (
-    <>
+    <BrowserRouter>
       <Navber initials={initials} fullName={user?.name || ""} />
-      <UserProfile user={user} />
-    </>
+      <Routes>
+        <Route path="/" element={<Homepage />} />
+        <Route path="/profile" element={<UserProfile />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

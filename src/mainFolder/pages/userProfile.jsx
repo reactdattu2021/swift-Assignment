@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-import "./userProfile.css"; // CSS file for styling
+import "./userProfile.css"; 
 import { BsArrowLeft } from "react-icons/bs";
 
 const UserProfile = ({ userprop }) => {
   const [user, setUser] = useState(null);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchUser = async () => {
       try {
@@ -31,7 +33,7 @@ const UserProfile = ({ userprop }) => {
     <>
      
       <div className="welcome-header">
-        <button className="back-button">
+        <button className="back-button" onClick={() => navigate("/")}>
           <BsArrowLeft />
         </button>
         {user && <h2 className="welcome-text">Welcome, {user.name}</h2>}
